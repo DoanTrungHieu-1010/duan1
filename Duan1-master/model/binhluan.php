@@ -19,9 +19,4 @@ function insert_binhluan($id_sanpham, $text)
     $result = pdo_execute($sql);
     return $result;
 }
-function delete_binhluan($id_sanpham)
-{
-    $sql = "DELETE FROM binhluan WHERE id =" . $id_sanpham;
-    pdo_execute($sql);
-}
-?>
+
