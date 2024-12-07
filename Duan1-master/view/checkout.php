@@ -151,7 +151,50 @@ input[type="text"] {
           
         </div>
       </div>
-      
+      <div class="col-lg-5 mt-4 mt-lg-0">
+        <div class="your-order-area">
+          <h3 class="title">Đơn hàng của bạn</h3>
+          <div class="your-order-wrap gray-bg-4">
+            <div class="your-order-product-info">
+              <div class="your-order-top">
+                <ul>
+                  <li>Products</li>
+                  <li>Total</li>
+                </ul>
+              </div>
+              <div class="your-order-middle">
+                <ul>
+                  <?php 
+                    foreach($listsanpham as $sp):
+                  ?>
+                  <li>
+                    <span class="order-middle-left" style="width:60%"><?=$sp['ten']." - ".$sp['mausac']?> </span>
+                    <span class="order-price"><?="x".$sp['soluong']."   ";?></span>
+                    <span class="order-price"><?=number_format($sp['gia']*$sp['soluong'],0,",","."). " <u>đ</u>"?></span>
+                  </li>
+                  <?php endforeach ?>
+                </ul>
+              </div>
+              <div class="your-order-bottom">
+                <ul>
+                  <li class="your-order-shipping">Phí vận chuyển</li>
+                  <li>Miễn phí vận chuyển</li>
+                </ul>
+              </div>
+              <div class="your-order-total">
+                <ul>
+                  <li class="order-total">Thành tiền</li>
+                  <li><?=number_format($tong_gia_don_hang,0,",","."). " <u>đ</u>"?></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="Place-order mt-25">
+            <input type="hidden" name="gia" value="<?=$sp['gia']?>">
+            <input type="hidden" name="tongtien" value="<?=$tong_gia_don_hang?>">
+            <button type="submit" name="hoantatdathang"><span class="btn btn--xl btn-block btn-primary" >Hoàn Tất Đặt Hàng</span></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
